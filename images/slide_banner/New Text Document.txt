@@ -1,0 +1,18 @@
+<?php
+                $this->widget('bootstrap.widgets.TbCarousel', array(
+                    'displayPrevAndNext' => true,
+                    'items' => array(                       
+                        array('image' => 'http://www.pabnanews24.com/images/slide_banner/banner1.jpg', 'label' => '', 'caption' => ''),
+                        array('image' => 'http://www.pabnanews24.com/images/slide_banner/banner2.jpg', 'label' => '', 'caption' => ''),
+                        array('image' => 'http://www.pabnanews24.com/images/slide_banner/banner3.jpg', 'label' => '', 'caption' => ''),
+                        array('image' => 'http://www.pabnanews24.com/images/slide_banner/banner4.jpg', 'label' => '', 'caption' => ''),
+                        array('image' => 'http://www.pabnanews24.com/images/slide_banner/banner5.jpg', 'label' => '', 'caption' => ''),
+                        array('image' => 'http://www.pabnanews24.com/images/slide_banner/banner6.jpg', 'label' => '', 'caption' => ''),
+                        array('image' => 'http://www.pabnanews24.com/images/slide_banner/banner7.jpg', 'label' => '', 'caption' => ''),
+                        array('image' => 'http://www.pabnanews24.com/images/slide_banner/banner8.jpg', 'label' => '', 'caption' => ''),
+                        array('image' => 'http://www.pabnanews24.com/images/slide_banner/banner9.jpg', 'label' => '', 'caption' => ''),
+                        array('image' => 'http://www.pabnanews24.com/images/slide_banner/banner10.jpg', 'label' => '', 'caption' => ''),
+                    ),
+                    'htmlOptions' => array('style' => 'width:570px;'),
+                ));
+                ?>
