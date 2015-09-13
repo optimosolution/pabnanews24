@@ -39,7 +39,7 @@ class Advertisement extends CActiveRecord {
             array('category_id, title', 'required'),
             array('category_id, ordering', 'numerical', 'integerOnly' => true),
             array('title', 'length', 'max' => 200),
-            array('picture', 'length', 'max' => 255),
+            array('picture,url', 'length', 'max' => 255),
             array('created_date,description', 'safe'),
             array('picture', 'file', 'types' => 'jpg,jpeg,gif,png', 'allowEmpty' => true, 'minSize' => 2, 'maxSize' => 1024 * 1024 * 5, 'tooLarge' => 'The file was larger than 5MB. Please upload a smaller file.', 'wrongType' => 'File format was not supported.', 'tooSmall' => 'File size was too small or empty.'),
             // The following rule is used by search().
@@ -70,6 +70,7 @@ class Advertisement extends CActiveRecord {
             'created_date' => 'Created Date',
             'ordering' => 'Ordering',
             'description' => 'Description',
+            'url'=>'URL',
         );
     }
 

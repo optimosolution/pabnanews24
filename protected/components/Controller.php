@@ -305,7 +305,8 @@ class Controller extends CController {
 
         foreach ($array as $key => $values) {
             echo '<div style="margin-bottom:5px;">';
-            echo CHtml::image(Yii::app()->baseUrl . '/uploads/advertisement/' . $values['picture'], $values['title'], array("width" => 870, 'title' => $values['title']));
+            $banner = CHtml::image(Yii::app()->baseUrl . '/uploads/advertisement/' . $values['picture'], $values['title'], array("width" => 870, 'title' => $values['title']));
+            echo CHtml::link($banner, $values['url'], array('target' => '_blank'));
             echo '</div>';
         }
     }
@@ -321,7 +322,8 @@ class Controller extends CController {
 
         foreach ($array as $key => $values) {
             echo '<div style="margin-bottom:5px;">';
-            echo CHtml::image(Yii::app()->baseUrl . '/uploads/advertisement/' . $values['picture'], $values['title'], array("width" => 270, 'title' => $values['title']));
+            $banner = CHtml::image(Yii::app()->baseUrl . '/uploads/advertisement/' . $values['picture'], $values['title'], array("width" => 270, 'title' => $values['title']));
+            echo CHtml::link($banner, $values['url'], array('target' => '_blank'));
             echo '</div>';
         }
     }

@@ -45,6 +45,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             'htmlOptions' => array('style' => "text-align:left;"),
         ),
         'title',
+        'url',
         array(
             'name' => 'picture',
             'type' => 'raw',

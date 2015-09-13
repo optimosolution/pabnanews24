@@ -138,9 +138,9 @@ class ContentController extends BackEndController {
                 } else {
                     $model->alias = str_replace(' ', '-', strtolower($model->alias));
                 }
-                if (!empty($model->ordering)) {
-                    $model->ordering = Content::getAutoOrderingUpdate($model->catid, $model->ordering);
-                }
+//                if (!empty($model->ordering)) {
+//                    $model->ordering = Content::getAutoOrderingUpdate($model->catid, $model->ordering);
+//                }
                 //Picture upload script
                 if (@!empty($_FILES['Content']['name']['profile_picture'])) {
                     $model->profile_picture = $_POST['Content']['profile_picture'];

@@ -221,12 +221,12 @@ class Content extends CActiveRecord {
         $total = Yii::app()->db->createCommand()
                 ->select('COUNT(*)')
                 ->from('{{content}}')
-                ->where('catid=' . (int) $catid . ' AND ordering >=' . $order)
+                ->where('catid=' . (int) $catid . ' AND ordering >=' . (int)$order)
                 ->queryScalar();
         for ($i = 1; $i <= $total; $i++) {
-            if (($model = Content::model()->find(array('condition' => 'catid=' . (int) $catid . ' AND ordering=' . (int) $order))) != null) {
-                $model->ordering = $order + 1;
-                $model->save();
+            if (($models = Content::model()->find(array('condition' => 'catid=' . (int) $catid . ' AND ordering=' . (int) $order))) != null) {
+                $models->ordering = $order + 1;
+                $models->save();
             }
             $order = $order + 1;
         }

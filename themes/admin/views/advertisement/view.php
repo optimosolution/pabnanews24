@@ -30,6 +30,7 @@ $this->widget('bootstrap.widgets.TbDetailView', array(
             'value' => get_category($model->category_id),
         ),
         'title',
+        'url',
         array(
             'name' => 'description',
             'type' => 'raw',
