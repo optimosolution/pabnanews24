@@ -1,13 +1,13 @@
 <?php $this->beginContent('//layouts/main'); ?>
 <div class="row-fluid date_bg">
     <div class="span3">
-        <span class="radio_pabna">Radio Pabna</span>
+<!--        <span class="radio_pabna">Radio Pabna</span>-->
         <!--VosCast.com Flash Player-->
-        <script type="text/javascript" src="http://cdn.voscast.com/player/?key=a2ea64246b0d9c9c35508c5bdfdfd644"></script>
+<!--        <script type="text/javascript" src="http://cdn.voscast.com/player/?key=a2ea64246b0d9c9c35508c5bdfdfd644"></script>-->
     </div>
     <div class="span7" style="font-size:14px;">
         <!--VosCast.com SHOUTcast Server Stats-->
-        <script type="text/javascript" src="http://cdn.voscast.com/stats/display.js?key=a2ea64246b0d9c9c35508c5bdfdfd644&stats=songtitle"></script>
+<!--        <script type="text/javascript" src="http://cdn.voscast.com/stats/display.js?key=a2ea64246b0d9c9c35508c5bdfdfd644&stats=songtitle"></script>-->
     </div>
     <div class="span2" style="text-align: right; padding-right: 20px; font-size: 20px;">                  
         <?php //echo date('l jS \of F Y h:i:s A'); ?> 

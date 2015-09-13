@@ -128,12 +128,12 @@ class Content extends CActiveRecord {
         $criteria->compare('featured', $this->featured);
 
         return new CActiveDataProvider($this, array(
-                    'criteria' => $criteria,
-                    'pagination' => array(
-                        'pageSize' => 20,
-                    ),
-                    'sort' => array('defaultOrder' => 'created DESC, id DESC')
-                ));
+            'criteria' => $criteria,
+            'pagination' => array(
+                'pageSize' => 20,
+            ),
+            'sort' => array('defaultOrder' => 'created DESC, id DESC')
+        ));
     }
 
     /**
@@ -199,12 +199,37 @@ class Content extends CActiveRecord {
         $criteria->compare('t.featured', $this->featured);
 
         return new CActiveDataProvider($this, array(
-                    'criteria' => $criteria,
-                    'pagination' => array(
-                        'pageSize' => 20,
-                    ),
-                    'sort' => array('defaultOrder' => 't.created DESC')
-                ));
+            'criteria' => $criteria,
+            'pagination' => array(
+                'pageSize' => 20,
+            ),
+            'sort' => array('defaultOrder' => 't.created DESC')
+        ));
+    }
+
+    public static function getAutoOrderingNew($catid) {
+        $maxOrdering = Yii::app()->db->createCommand()
+                ->select('IFNULL(MAX(ordering),0)')
+                ->from('{{content}}')
+                ->where('catid=' . (int) $catid)
+                ->queryScalar();
+        $maxOrdering = $maxOrdering + 1;
+        return $maxOrdering;
+    }
+
+    public static function getAutoOrderingUpdate($catid, $order) {
+        $total = Yii::app()->db->createCommand()
+                ->select('COUNT(*)')
+                ->from('{{content}}')
+                ->where('catid=' . (int) $catid . ' AND ordering >=' . $order)
+                ->queryScalar();
+        for ($i = 1; $i <= $total; $i++) {
+            if (($model = Content::model()->find(array('condition' => 'catid=' . (int) $catid . ' AND ordering=' . (int) $order))) != null) {
+                $model->ordering = $order + 1;
+                $model->save();
+            }
+            $order = $order + 1;
+        }
     }
 
 }

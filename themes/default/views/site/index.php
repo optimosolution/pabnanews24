@@ -49,6 +49,7 @@
                 <?php $this->get_advertisement(29); ?>
             </div>
         </div>
+        <!--        Main New -->
         <div class="row-fluid">
             <div class="span12">
                 <?php $this->local_main_news(); ?>

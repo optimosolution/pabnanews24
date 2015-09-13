@@ -86,6 +86,9 @@ class ContentController extends BackEndController {
                 } else {
                     $model->alias = str_replace(' ', '-', strtolower($model->alias));
                 }
+                if (empty($model->ordering) or $model->ordering == 0) {
+                    $model->ordering = Content::getAutoOrderingNew($model->catid);
+                }
                 //Picture upload script
                 if (@!empty($_FILES['Content']['name']['profile_picture'])) {
                     $model->profile_picture = $_POST['Content']['profile_picture'];
@@ -99,8 +102,8 @@ class ContentController extends BackEndController {
                     $model->profile_picture = time() . '_' . str_replace(' ', '_', strtolower($model->profile_picture));
                 }
                 if ($model->save()) {
-                    Yii::app()->user->setFlash('success', 'Saved successfully');
-                    $this->redirect(array('view', 'id' => $model->id));
+                    Yii::app()->user->setFlash('success', 'Content was saved successfully!');
+                    $this->redirect(array('admin'));
                 }
             }
         }
@@ -135,6 +138,9 @@ class ContentController extends BackEndController {
                 } else {
                     $model->alias = str_replace(' ', '-', strtolower($model->alias));
                 }
+                if (!empty($model->ordering)) {
+                    $model->ordering = Content::getAutoOrderingUpdate($model->catid, $model->ordering);
+                }
                 //Picture upload script
                 if (@!empty($_FILES['Content']['name']['profile_picture'])) {
                     $model->profile_picture = $_POST['Content']['profile_picture'];
@@ -154,8 +160,8 @@ class ContentController extends BackEndController {
                     $model->profile_picture = $previuosFileName;
                 }
                 if ($model->save()) {
-                    Yii::app()->user->setFlash('success', 'Saved successfully');
-                    $this->redirect(array('view', 'id' => $model->id));
+                    Yii::app()->user->setFlash('success', 'Content was saved successfully!');
+                    $this->redirect(array('admin'));
                 }
             }
         }
@@ -179,8 +185,7 @@ class ContentController extends BackEndController {
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-        }
-        else
+        } else
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
     }
 
