@@ -52,21 +52,16 @@
         $this->widget('bootstrap.widgets.TbMenu', array(
             'type' => 'pills', // '', 'tabs', 'pills' (or 'list')
             'stacked' => false, // whether this is a stacked menu
-            'items' => array(
+            'items' => array( //4 5 6 7 8 9 10 11
                 array('label' => $this->get_menu_name(1), 'url' => array('/site/index')),
-                array('label' => $this->get_menu_name(20), 'url' => array('content/index', 'id' => 20)),
-                array('label' => $this->get_menu_name(21), 'url' => array('content/index', 'id' => 21)),
-                array('label' => $this->get_menu_name(22), 'url' => array('content/index', 'id' => 22)),
-                array('label' => $this->get_menu_name(23), 'url' => array('content/index', 'id' => 23)),
-                array('label' => $this->get_menu_name(24), 'url' => array('content/index', 'id' => 24)),
-                array('label' => $this->get_menu_name(25), 'url' => array('content/index', 'id' => 25)),
-                array('label' => $this->get_menu_name(26), 'url' => array('content/index', 'id' => 26)),
-                array('label' => $this->get_menu_name(27), 'url' => array('content/index', 'id' => 27)),
-                array('label' => $this->get_menu_name(28), 'url' => array('content/index', 'id' => 28)),
-                array('label' => $this->get_menu_name(47), 'url' => array('content/index', 'id' => 30)),
-                array('label' => $this->get_menu_name(57), 'url' => array('content/index', 'id' => 33)),
-                //array('label' => $this->get_menu_name(3), 'url' => array('content/index', 'id' => 29)),
-                //array('label' => $this->get_menu_name(11), 'url' => array('content/index', 'id' => 32)),
+                array('label' => ContentCategory::getCategoryName(4), 'url' => array('content/index', 'id' => 4)),
+                array('label' => ContentCategory::getCategoryName(5), 'url' => array('content/index', 'id' => 5)),
+                array('label' => ContentCategory::getCategoryName(6), 'url' => array('content/index', 'id' => 6)),
+                array('label' => ContentCategory::getCategoryName(7), 'url' => array('content/index', 'id' => 7)),
+                array('label' => ContentCategory::getCategoryName(8), 'url' => array('content/index', 'id' => 8)),
+                array('label' => ContentCategory::getCategoryName(9), 'url' => array('content/index', 'id' => 9)),
+                array('label' => ContentCategory::getCategoryName(10), 'url' => array('content/index', 'id' => 10)),
+                array('label' => ContentCategory::getCategoryName(11), 'url' => array('content/index', 'id' => 11)),
             ),
             'htmlOptions' => array('style' => 'font-size:16px;height:20px;'),
         ));

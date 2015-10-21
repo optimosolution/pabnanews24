@@ -103,36 +103,64 @@
         </div>
         <div class="row-fluid">
             <div class="span6">
-                <?php $this->getCategoryNews(4); ?>
+                <?php $this->get_interviews(20); ?>
+                <?php $this->get_interviews_list(20); ?>
             </div>
             <div class="span6">
-                <?php $this->getCategoryNews(5); ?>
+                <?php $this->get_interviews(21); ?>
+                <?php $this->get_interviews_list(21); ?>
             </div>
         </div>
         <div class="row-fluid">
             <div class="span6">
-                <?php $this->getCategoryNews(6); ?>
+                <?php $this->get_interviews(22); ?>
+                <?php $this->get_interviews_list(22); ?>
             </div>
             <div class="span6">
-                <?php $this->getCategoryNews(7); ?>
+                <?php $this->get_interviews(23); ?>
+                <?php $this->get_interviews_list(23); ?>
             </div>
-        </div>
+        </div>  
         <div class="row-fluid">
             <div class="span6">
-                <?php $this->getCategoryNews(8); ?>
+                <?php $this->get_interviews(24); ?>
+                <?php $this->get_interviews_list(24); ?>
             </div>
             <div class="span6">
-                <?php $this->getCategoryNews(9); ?>
+                <?php $this->get_interviews(25); ?>
+                <?php $this->get_interviews_list(25); ?>
             </div>
-        </div>
+        </div> 
         <div class="row-fluid">
             <div class="span6">
-                <?php $this->getCategoryNews(10); ?>
+                <?php $this->get_interviews(26); ?>
+                <?php $this->get_interviews_list(26); ?>
             </div>
             <div class="span6">
-                <?php $this->getCategoryNews(11); ?>
+                <?php $this->get_interviews(27); ?>
+                <?php $this->get_interviews_list(27); ?>
             </div>
-        </div>
+        </div>  
+        <div class="row-fluid">
+            <div class="span6">
+                <?php $this->get_interviews(28); ?>
+                <?php $this->get_interviews_list(28); ?>
+            </div>
+            <div class="span6">
+                <?php $this->get_interviews(30); ?>
+                <?php $this->get_interviews_list(30); ?>
+            </div>
+        </div>  
+        <div class="row-fluid">
+            <div class="span6">
+                <?php $this->get_interviews(33); ?>
+                <?php $this->get_interviews_list(33); ?>
+            </div>
+            <div class="span6">
+                <?php //$this->get_interviews(16); ?>
+                <?php //$this->get_interviews_list(16); ?>
+            </div>
+        </div>  
         <div class="row-fluid">
             <div class="span12">
                 <?php $this->get_advertisement(3); ?>
