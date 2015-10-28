@@ -78,17 +78,20 @@ class ContentController extends BackEndController {
 
         if (isset($_POST['Content'])) {
             $model->attributes = $_POST['Content'];
+            $model->created = new CDbExpression('NOW()');
+            $model->created_by = Yii::app()->user->id;
+            if (empty($model->alias)) {
+                $model->alias = str_replace(' ', '-', strtolower($model->title));
+            } else {
+                $model->alias = str_replace(' ', '-', strtolower($model->alias));
+            }
+            if (is_array(@$_POST['Content']['catid']))
+                $model->catid = implode(",", $model->attributes['catid']);
+
+//                if (empty($model->ordering) or $model->ordering == 0) {
+//                    $model->ordering = Content::getAutoOrderingNew($model->catid);
+//                }
             if ($model->validate()) {
-                $model->created = new CDbExpression('NOW()');
-                $model->created_by = Yii::app()->user->id;
-                if (empty($model->alias)) {
-                    $model->alias = str_replace(' ', '-', strtolower($model->title));
-                } else {
-                    $model->alias = str_replace(' ', '-', strtolower($model->alias));
-                }
-                if (empty($model->ordering) or $model->ordering == 0) {
-                    $model->ordering = Content::getAutoOrderingNew($model->catid);
-                }
                 //Picture upload script
                 if (@!empty($_FILES['Content']['name']['profile_picture'])) {
                     $model->profile_picture = $_POST['Content']['profile_picture'];
@@ -130,14 +133,16 @@ class ContentController extends BackEndController {
 
         if (isset($_POST['Content'])) {
             $model->attributes = $_POST['Content'];
+            $model->modified = date('Y-m-d');
+            $model->modified_by = Yii::app()->user->id;
+            if (empty($model->alias)) {
+                $model->alias = str_replace(' ', '-', strtolower($model->title));
+            } else {
+                $model->alias = str_replace(' ', '-', strtolower($model->alias));
+            }
+            if (is_array(@$_POST['Content']['catid']))
+                $model->catid = implode(",", $model->attributes['catid']);
             if ($model->validate()) {
-                $model->modified = date('Y-m-d');
-                $model->modified_by = Yii::app()->user->id;
-                if (empty($model->alias)) {
-                    $model->alias = str_replace(' ', '-', strtolower($model->title));
-                } else {
-                    $model->alias = str_replace(' ', '-', strtolower($model->alias));
-                }
 //                if (!empty($model->ordering)) {
 //                    $model->ordering = Content::getAutoOrderingUpdate($model->catid, $model->ordering);
 //                }
@@ -165,7 +170,8 @@ class ContentController extends BackEndController {
                 }
             }
         }
-
+        if (isset($model->catid))
+            $model->catid = explode(',', $model->catid);
         $this->render('update', array(
             'model' => $model,
         ));

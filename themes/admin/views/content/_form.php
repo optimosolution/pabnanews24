@@ -27,7 +27,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 <?php echo $form->errorSummary($model); ?>
 <?php echo $form->textFieldRow($model, 'title', array('class' => 'span5', 'maxlength' => 255)); ?>
 <?php //echo $form->textFieldRow($model, 'alias', array('class' => 'span5', 'maxlength' => 255)); ?>
-<?php echo $form->DropDownListRow($model, 'catid', CHtml::listData(ContentCategory::model()->findAll(array('condition' => 'published=1', "order" => "title")), 'id', 'title'), array('empty' => '--please select--', 'class' => 'span5')); ?>
+<?php echo $form->DropDownListRow($model, 'catid', CHtml::listData(ContentCategory::model()->findAll(array('condition' => 'published=1', "order" => "title")), 'id', 'title'), array('multiple' => true, 'class' => 'span5')); ?>
 <?php echo $form->fileFieldRow($model, 'profile_picture', array('size' => 36, 'maxlength' => 255)); ?>
 <?php //echo $form->textAreaRow($model, 'introtext', array('rows' => 6, 'cols' => 50, 'class' => 'span8')); ?>
 <?php echo $form->labelEx($model, 'introtext'); ?>

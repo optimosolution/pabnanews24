@@ -144,7 +144,7 @@ class ContentController extends Controller {
         //$dataProvider = new CActiveDataProvider('Content');
         $criteria = new CDbCriteria(array(
                     'order' => 'created DESC, id DESC',
-                    'condition' => 'catid=' . $id . ' AND state = 1',
+                    'condition' => 'INSTR(catid,' . $id . ')>0 AND state = 1',
                 ));
         $dataProvider = new CActiveDataProvider('Content', array(
                     'criteria' => $criteria,

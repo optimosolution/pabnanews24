@@ -48,7 +48,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         array(
             'name' => 'catid',
             'type' => 'raw',
-            'value' => 'getCategoryName($data->catid)',
+            'value' => 'ContentCategory::get_categories($data->id)',
             'filter' => CHtml::activeDropDownList($model, 'catid', CHtml::listData(ContentCategory::model()->findAll(array('condition' => '', "order" => "title")), 'id', 'title'), array('empty' => 'All')),
             'htmlOptions' => array('style' => "text-align:left;", 'title' => 'Parent Category'),
         ),

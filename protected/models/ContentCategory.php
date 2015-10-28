@@ -101,11 +101,11 @@ class ContentCategory extends CActiveRecord {
         $criteria->compare('modified_time', $this->modified_time, true);
 
         return new CActiveDataProvider($this, array(
-                    'criteria' => $criteria,
-                    'pagination' => array(
-                        'pageSize' => 50,
-                    ),
-                ));
+            'criteria' => $criteria,
+            'pagination' => array(
+                'pageSize' => 50,
+            ),
+        ));
     }
 
     /**
@@ -138,6 +138,25 @@ class ContentCategory extends CActiveRecord {
             $returnValue = $returnValue;
         }
         return $returnValue;
+    }
+
+    public static function get_category_name($id) {
+        $model = ContentCategory::model()->findByPk($id);
+        if (!empty($model->title)) {
+            return $model->title;
+        } else {
+            return null;
+        }
+    }
+
+    public static function get_categories($id) {
+        $model = Content::model()->findByPk($id);
+        $exval = explode(',', $model->catid);
+        $property = '';
+        for ($i = 0; $i < count($exval); $i++) {
+            $property .= ContentCategory::get_category_name($exval[$i]) . ', ';
+        }
+        return $property;
     }
 
 }

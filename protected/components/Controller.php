@@ -205,13 +205,13 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where('catid=' . $catid . ' AND state=1 ')
+                ->where('INSTR(catid,' . $catid . ')>0 AND state=1 ')
                 ->limit('1')
                 ->order('created DESC, id DESC')
                 ->queryAll();
 
         $oDbConnection = Yii::app()->db;
-        $oCommand = $oDbConnection->createCommand('SELECT id, title FROM {{content}} WHERE state = 1 AND catid=' . $catid . ' ORDER BY created DESC, id DESC LIMIT 1,10');
+        $oCommand = $oDbConnection->createCommand('SELECT id, title FROM {{content}} WHERE state = 1 AND INSTR(catid,' . $catid . ')>0 ORDER BY created DESC, id DESC LIMIT 1,10');
         $oCDbDataReader = $oCommand->queryAll();
 
         echo '<h3 style="border-bottom:2px solid #999;">' . CHtml::link($this->get_category_name($catid), array('content/index', 'id' => $catid), array('class' => '', 'target' => '_blank')) . '</h3>';
@@ -234,7 +234,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where('catid=' . $catid . ' AND state=1')
+                ->where('INSTR(catid,' . $catid . ')>0 AND state=1')
                 ->limit('5')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -251,7 +251,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where('catid=' . $catid . ' AND state=1')
+                ->where('INSTR(catid,' . $catid . ')>0 AND state=1')
                 ->limit('3')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -267,7 +267,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where('catid=' . $catid . ' AND state=1')
+                ->where('INSTR(catid,' . $catid . ')>0 AND state=1')
                 ->limit('15')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -283,7 +283,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where('catid=' . $catid . ' AND state=1')
+                ->where('INSTR(catid,' . $catid . ')>0 AND state=1')
                 ->limit('5')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -417,7 +417,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where('state=1 AND featured=1 AND catid=2')
+                ->where('state=1 AND featured=1 AND INSTR(catid,2)>0')
                 ->limit('1')
                 ->order('ordering DESC, created DESC')
                 ->queryAll();
@@ -447,7 +447,7 @@ class Controller extends CController {
     }
 
     public function local_main_news1() {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=2 ORDER BY ordering DESC, created DESC LIMIT 1,1')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,2)>0 ORDER BY ordering DESC, created DESC LIMIT 1,1')->queryAll();
         foreach ($array as $key => $values) {
             if (empty($values["profile_picture"])) {
                 echo '<div class="thumbnail">' . CHtml::image(Yii::app()->baseUrl . '/uploads/profile_picture/noimage.png', $values['title'], array("width" => 260, 'title' => $values['title'])) . '</div>';
@@ -460,7 +460,7 @@ class Controller extends CController {
     }
 
     public function local_main_news2() {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=2 ORDER BY ordering DESC, created DESC LIMIT 2,1')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,2)>0 ORDER BY ordering DESC, created DESC LIMIT 2,1')->queryAll();
         foreach ($array as $key => $values) {
             if (empty($values["profile_picture"])) {
                 echo '<div class="thumbnail">' . CHtml::image(Yii::app()->baseUrl . '/uploads/profile_picture/noimage.png', $values['title'], array("width" => 260, 'title' => $values['title'])) . '</div>';
@@ -473,7 +473,7 @@ class Controller extends CController {
     }
 
     public function local_main_news3() {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=2 ORDER BY ordering DESC, created DESC LIMIT 3,1')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,2)>0 ORDER BY ordering DESC, created DESC LIMIT 3,1')->queryAll();
         foreach ($array as $key => $values) {
             if (empty($values["profile_picture"])) {
                 echo '<div class="thumbnail">' . CHtml::image(Yii::app()->baseUrl . '/uploads/profile_picture/noimage.png', $values['title'], array("width" => 260, 'title' => $values['title'])) . '</div>';
@@ -486,7 +486,7 @@ class Controller extends CController {
     }
 
     public function local_main_news4() {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=2 ORDER BY ordering DESC, created DESC LIMIT 4,1')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,2)>0 ORDER BY ordering DESC, created DESC LIMIT 4,1')->queryAll();
         foreach ($array as $key => $values) {
             if (empty($values["profile_picture"])) {
                 echo '<div class="thumbnail">' . CHtml::image(Yii::app()->baseUrl . '/uploads/profile_picture/noimage.png', $values['title'], array("width" => 260, 'title' => $values['title'])) . '</div>';
@@ -499,7 +499,7 @@ class Controller extends CController {
     }
 
     public function local_main_news5() {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=2 ORDER BY ordering DESC, created DESC LIMIT 5,1')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,2)>0 ORDER BY ordering DESC, created DESC LIMIT 5,1')->queryAll();
         foreach ($array as $key => $values) {
             if (empty($values["profile_picture"])) {
                 echo '<div class="thumbnail">' . CHtml::image(Yii::app()->baseUrl . '/uploads/profile_picture/noimage.png', $values['title'], array("width" => 260, 'title' => $values['title'])) . '</div>';
@@ -512,7 +512,7 @@ class Controller extends CController {
     }
 
     public function local_main_news6() {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=2 ORDER BY ordering DESC, created DESC LIMIT 6,1')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,2)>0 ORDER BY ordering DESC, created DESC LIMIT 6,1')->queryAll();
         foreach ($array as $key => $values) {
             if (empty($values["profile_picture"])) {
                 echo '<div class="thumbnail">' . CHtml::image(Yii::app()->baseUrl . '/uploads/profile_picture/noimage.png', $values['title'], array("width" => 260, 'title' => $values['title'])) . '</div>';
@@ -525,7 +525,7 @@ class Controller extends CController {
     }
 
     public function local_main_news44() {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=2 ORDER BY ordering DESC, created DESC LIMIT 7,1')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,2)>0 ORDER BY ordering DESC, created DESC LIMIT 7,1')->queryAll();
         foreach ($array as $key => $values) {
             if (empty($values["profile_picture"])) {
                 echo '<div class="thumbnail">' . CHtml::image(Yii::app()->baseUrl . '/uploads/profile_picture/noimage.png', $values['title'], array("width" => 260, 'title' => $values['title'])) . '</div>';
@@ -538,7 +538,7 @@ class Controller extends CController {
     }
 
     public function local_main_news55() {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=2 ORDER BY ordering DESC, created DESC LIMIT 8,1')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,2)>0 ORDER BY ordering DESC, created DESC LIMIT 8,1')->queryAll();
         foreach ($array as $key => $values) {
             if (empty($values["profile_picture"])) {
                 echo '<div class="thumbnail">' . CHtml::image(Yii::app()->baseUrl . '/uploads/profile_picture/noimage.png', $values['title'], array("width" => 260, 'title' => $values['title'])) . '</div>';
@@ -551,7 +551,7 @@ class Controller extends CController {
     }
 
     public function local_main_news66() {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=2 ORDER BY ordering DESC, created DESC LIMIT 9,1')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,2)>0 ORDER BY ordering DESC, created DESC LIMIT 9,1')->queryAll();
         foreach ($array as $key => $values) {
             if (empty($values["profile_picture"])) {
                 echo '<div class="thumbnail">' . CHtml::image(Yii::app()->baseUrl . '/uploads/profile_picture/noimage.png', $values['title'], array("width" => 260, 'title' => $values['title'])) . '</div>';
@@ -564,7 +564,7 @@ class Controller extends CController {
     }
 
     public function local_main_news7() {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=2 ORDER BY ordering DESC, created DESC LIMIT 10,5')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,2)>0 ORDER BY ordering DESC, created DESC LIMIT 10,5')->queryAll();
         print '<ul>';
         foreach ($array as $key => $values) {
             echo '<li>' . CHtml::link($values['title'], array('content/view', 'id' => $values['id']), array('class' => 'home_top_news', 'target' => '_blank')) . '</li>';
@@ -573,7 +573,7 @@ class Controller extends CController {
     }
 
     public function local_main_news8() {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=2 ORDER BY ordering DESC, created DESC LIMIT 15,5')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,2)>0 ORDER BY ordering DESC, created DESC LIMIT 15,5')->queryAll();
         print '<ul>';
         foreach ($array as $key => $values) {
             echo '<li>' . CHtml::link($values['title'], array('content/view', 'id' => $values['id']), array('class' => 'home_top_news', 'target' => '_blank')) . '</li>';
@@ -585,7 +585,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where('state=1 AND catid=' . $catid)
+                ->where('state=1 AND INSTR(catid,' . $catid . ')>0')
                 ->limit('1')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -602,7 +602,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where('state=1 AND catid=' . $catid)
+                ->where('state=1 AND INSTR(catid,' . $catid . ')>0')
                 ->limit('1')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -615,7 +615,7 @@ class Controller extends CController {
     }
 
     public function get_interviews_list($catid) {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND catid=' . $catid . ' ORDER BY created DESC, id DESC LIMIT 1,3')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND INSTR(catid,' . $catid . ')>0 ORDER BY created DESC, id DESC LIMIT 1,3')->queryAll();
         print '<ul>';
         foreach ($array as $key => $values) {
             echo '<li>' . CHtml::link($values['title'], array('content/view', 'id' => $values['id']), array('class' => 'home_top_news', 'target' => '_blank')) . '</li>';
@@ -643,7 +643,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('id,title')
                 ->from('{{content}}')
-                ->where('state=1 AND catid=31')
+                ->where('state=1 AND INSTR(catid,31)>0')
                 ->limit('20')
                 ->order('created DESC, id DESC')
                 ->queryAll();

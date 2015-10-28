@@ -47,7 +47,7 @@ $this->widget('bootstrap.widgets.TbDetailView', array(
         array(
             'name' => 'catid',
             'type' => 'raw',
-            'value' => $model->getCategoryName($model->catid),
+            'value' => ContentCategory::get_categories($model->id),
         ),
         array(
             'name' => 'created_by',

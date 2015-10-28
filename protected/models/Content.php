@@ -51,8 +51,8 @@ class Content extends CActiveRecord {
         return array(
             array('title, catid, introtext, state', 'required'),
             array('state, ordering, featured', 'numerical', 'integerOnly' => true),
-            array('title, alias', 'length', 'max' => 255),
-            array('catid, created_by, modified_by, hits', 'length', 'max' => 10),
+            array('title, alias, catid', 'length', 'max' => 255),
+            array('created_by, modified_by, hits', 'length', 'max' => 10),
             array('created, modified, publish_up, publish_down', 'safe'),
             array('profile_picture', 'file', 'types' => 'jpg,jpeg,gif,png', 'allowEmpty' => true, 'minSize' => 2, 'maxSize' => 1024 * 1024 * 5, 'tooLarge' => 'The file was larger than 5MB. Please upload a smaller file.', 'wrongType' => 'File format was not supported.', 'tooSmall' => 'File size was too small or empty.'),
             // The following rule is used by search().
@@ -114,7 +114,7 @@ class Content extends CActiveRecord {
         $criteria->compare('introtext', $this->introtext, true);
         $criteria->compare('fulltext', $this->fulltext, true);
         $criteria->compare('state', $this->state);
-        $criteria->compare('catid', $this->catid);
+        $criteria->compare('catid', $this->catid, true);
         $criteria->compare('created', $this->created, true);
         $criteria->compare('created_by', $this->created_by, true);
         $criteria->compare('modified', $this->modified, true);
