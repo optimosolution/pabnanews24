@@ -1,7 +1,7 @@
 <?php
 $this->pageTitle = $model->title . '-' . Yii::app()->name;
 $this->breadcrumbs = array(
-    $this->get_category_name($model->catid) => array('/content/index', 'id' => $model->catid),
+    //$this->get_category_name($model->catid) => array('/content/index', 'id' => $model->catid),
     $model->title,
 );
 ?>

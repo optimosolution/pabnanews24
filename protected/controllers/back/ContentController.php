@@ -104,6 +104,9 @@ class ContentController extends BackEndController {
                     $model->profile_picture = time() . '_' . str_replace(' ', '_', strtolower($model->profile_picture));
                 }
                 if ($model->save()) {
+                    if ($model->featured == 1) {
+                        Yii::app()->db->createCommand('UPDATE {{content}} SET featured=0 WHERE id !=' . (int) $model->id)->execute();
+                    }
                     Yii::app()->user->setFlash('success', 'Content was saved successfully!');
                     $this->redirect(array('admin'));
                 }
@@ -164,6 +167,9 @@ class ContentController extends BackEndController {
                     $model->profile_picture = $previuosFileName;
                 }
                 if ($model->save()) {
+                    if ($model->featured == 1) {
+                        Yii::app()->db->createCommand('UPDATE {{content}} SET featured=0 WHERE id !=' . (int) $id)->execute();
+                    }
                     Yii::app()->user->setFlash('success', 'Content was saved successfully!');
                     $this->redirect(array('admin'));
                 }

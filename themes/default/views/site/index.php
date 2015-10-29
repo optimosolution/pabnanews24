@@ -55,47 +55,7 @@
                 <?php $this->local_main_news(); ?>
             </div>
         </div>
-        <div class="row-fluid">
-            <div class="span4">
-                <?php $this->local_main_news1(); ?>
-            </div>
-            <div class="span4">
-                <?php $this->local_main_news2(); ?>
-            </div>
-            <div class="span4">
-                <?php $this->local_main_news3(); ?>
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div class="span4">
-                <?php $this->local_main_news4(); ?>
-            </div>
-            <div class="span4">
-                <?php $this->local_main_news5(); ?>
-            </div>
-            <div class="span4">
-                <?php $this->local_main_news6(); ?>
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div class="span4">
-                <?php $this->local_main_news44(); ?>
-            </div>
-            <div class="span4">
-                <?php $this->local_main_news55(); ?>
-            </div>
-            <div class="span4">
-                <?php $this->local_main_news66(); ?>
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div class="span6">
-                <?php //$this->local_main_news7(); ?>
-            </div>
-            <div class="span6">
-                <?php //$this->local_main_news8(); ?>
-            </div>
-        </div>
+        <?php $this->local_main_news_bottom(); ?>        
         <div class="row-fluid">
             <div class="span12">
                 <?php $this->get_advertisement(2); ?>
