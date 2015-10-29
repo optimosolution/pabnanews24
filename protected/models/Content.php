@@ -207,11 +207,12 @@ class Content extends CActiveRecord {
         ));
     }
 
-    public static function getAutoOrderingNew($catid) {
+    public static function getAutoOrderingNew() {//$catid
         $maxOrdering = Yii::app()->db->createCommand()
-                ->select('IFNULL(MAX(ordering),0)')
+                //->select('IFNULL(MAX(ordering),0)')
+                ->select('IFNULL(MAX(id),0)')
                 ->from('{{content}}')
-                ->where('catid=' . (int) $catid)
+                //->where('catid=' . (int) $catid)
                 ->queryScalar();
         $maxOrdering = $maxOrdering + 1;
         return $maxOrdering;
@@ -221,7 +222,7 @@ class Content extends CActiveRecord {
         $total = Yii::app()->db->createCommand()
                 ->select('COUNT(*)')
                 ->from('{{content}}')
-                ->where('catid=' . (int) $catid . ' AND ordering >=' . (int)$order)
+                ->where('catid=' . (int) $catid . ' AND ordering >=' . (int) $order)
                 ->queryScalar();
         for ($i = 1; $i <= $total; $i++) {
             if (($models = Content::model()->find(array('condition' => 'catid=' . (int) $catid . ' AND ordering=' . (int) $order))) != null) {

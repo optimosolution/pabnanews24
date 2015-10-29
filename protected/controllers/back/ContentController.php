@@ -87,10 +87,9 @@ class ContentController extends BackEndController {
             }
             if (is_array(@$_POST['Content']['catid']))
                 $model->catid = implode(",", $model->attributes['catid']);
-
-//                if (empty($model->ordering) or $model->ordering == 0) {
-//                    $model->ordering = Content::getAutoOrderingNew($model->catid);
-//                }
+            if (empty($model->ordering) or $model->ordering == 0) {
+                $model->ordering = Content::getAutoOrderingNew(); //$model->catid
+            }
             if ($model->validate()) {
                 //Picture upload script
                 if (@!empty($_FILES['Content']['name']['profile_picture'])) {

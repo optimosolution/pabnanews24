@@ -54,14 +54,14 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         ),
         array(
             'name' => 'state',
-            'value' => '$data->state?Yii::t(\'app\',\'Active\'):Yii::t(\'app\', \'Inactive\')',
-            'filter' => array('' => Yii::t('app', 'All'), '0' => Yii::t('app', 'Inactive'), '1' => Yii::t('app', 'Active')),
+            'value' => '$data->state?Yii::t(\'app\',\'Yes\'):Yii::t(\'app\', \'No\')',
+            'filter' => array('' => Yii::t('app', 'All'), '0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')),
             'htmlOptions' => array('style' => "text-align:center;"),
         ),
         array(
             'name' => 'featured',
-            'value' => '$data->featured?Yii::t(\'app\',\'Active\'):Yii::t(\'app\', \'Inactive\')',
-            'filter' => array('' => Yii::t('app', 'All'), '0' => Yii::t('app', 'Inactive'), '1' => Yii::t('app', 'Active')),
+            'value' => '$data->featured?Yii::t(\'app\',\'Yes\'):Yii::t(\'app\', \'No\')',
+            'filter' => array('' => Yii::t('app', 'All'), '0' => Yii::t('app', 'No'), '1' => Yii::t('app', 'Yes')),
             'htmlOptions' => array('style' => "text-align:center;"),
         ),
         array(
