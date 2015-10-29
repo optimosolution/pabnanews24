@@ -129,7 +129,6 @@
                 <?php $this->get_interviews_list(25); ?>
             </div>
         </div>  
-
         <div class="row-fluid">
             <div class="span4">
                 <?php $this->get_interviews(26); ?>
@@ -145,13 +144,17 @@
             </div>
         </div>  
         <div class="row-fluid">            
-            <div class="span6">
+            <div class="span4">
                 <?php $this->get_interviews(30); ?>
                 <?php $this->get_interviews_list(30); ?>
             </div>
-            <div class="span6">
+            <div class="span4">
                 <?php $this->get_interviews(33); ?>
                 <?php $this->get_interviews_list(33); ?>
+            </div>
+			<div class="span4">
+                <?php $this->get_interviews(34); ?>
+                <?php $this->get_interviews_list(34); ?>
             </div>
         </div>   
         <div class="row-fluid">
