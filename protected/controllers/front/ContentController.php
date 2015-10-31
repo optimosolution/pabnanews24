@@ -132,8 +132,7 @@ class ContentController extends Controller {
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-        }
-        else
+        } else
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
     }
 
@@ -143,12 +142,12 @@ class ContentController extends Controller {
     public function actionIndex($id) {
         //$dataProvider = new CActiveDataProvider('Content');
         $criteria = new CDbCriteria(array(
-                    'order' => 'created DESC, id DESC',
-                    'condition' => 'INSTR(catid,' . $id . ')>0 AND state = 1',
-                ));
+            'order' => 'created DESC, id DESC',
+            'condition' => (int) $id . ' IN(catid) AND state = 1',
+        ));
         $dataProvider = new CActiveDataProvider('Content', array(
-                    'criteria' => $criteria,
-                ));
+            'criteria' => $criteria,
+        ));
 
         $this->render('index', array(
             'dataProvider' => $dataProvider,
