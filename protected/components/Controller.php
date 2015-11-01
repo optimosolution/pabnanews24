@@ -417,7 +417,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where('state=1 AND featured=1 AND 2 IN(catid)')
+                ->where('state=1 AND featured=1 AND FIND_IN_SET(2, catid) > 0')
                 ->limit('1')
                 ->order('ordering DESC, created DESC')
                 ->queryAll();
@@ -448,7 +448,7 @@ class Controller extends CController {
 
     public function local_main_news_bottom() {
         $i = 1;
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND featured!=1 AND 2 IN(catid) ORDER BY ordering DESC, created DESC LIMIT 1,9')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND featured!=1 AND FIND_IN_SET(2, catid) > 0 ORDER BY ordering DESC, created DESC LIMIT 9')->queryAll();
         echo '<div class="row-fluid">';
         foreach ($array as $key => $values) {
             echo '<div class="span4">';

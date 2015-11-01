@@ -80,5 +80,14 @@ class MenuItem extends CActiveRecord {
             ),
         ));
     }
+    
+    public static function get_title($id) {
+        $model = MenuItem::model()->findByPk($id);
+        if (!empty($model->nemu_name)) {
+            return $model->nemu_name;
+        } else {
+            return null;
+        }
+    }
 
 }

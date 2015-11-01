@@ -112,7 +112,7 @@
                 <?php $this->get_interviews(33); ?>
                 <?php $this->get_interviews_list(33); ?>
             </div>
-			<div class="span4">
+            <div class="span4">
                 <?php $this->get_interviews(34); ?>
                 <?php $this->get_interviews_list(34); ?>
             </div>
@@ -122,6 +122,7 @@
                 <?php $this->get_advertisement(3); ?>
             </div>
         </div>
+        <h3 class="local_main_news"><?php echo MenuItem::get_title(60); ?></h3>
         <div class="row-fluid">
             <div class="span6">
                 <?php $this->get_interviews(15); ?>
