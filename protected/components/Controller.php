@@ -205,13 +205,13 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where((int) $catid . ' IN(catid) AND state=1 ')
+                ->where('state=1 AND FIND_IN_SET(' . (int) $catid . ',catid)')
                 ->limit('1')
                 ->order('created DESC, id DESC')
                 ->queryAll();
 
         $oDbConnection = Yii::app()->db;
-        $oCommand = $oDbConnection->createCommand('SELECT id, title FROM {{content}} WHERE state = 1 AND ' . (int) $catid . ' IN(catid) ORDER BY created DESC, id DESC LIMIT 1,10');
+        $oCommand = $oDbConnection->createCommand('SELECT id, title FROM {{content}} WHERE state = 1 AND FIND_IN_SET(' . (int) $catid . ',catid) ORDER BY created DESC, id DESC LIMIT 1,10');
         $oCDbDataReader = $oCommand->queryAll();
 
         echo '<h3 style="border-bottom:2px solid #999;">' . CHtml::link($this->get_category_name($catid), array('content/index', 'id' => $catid), array('class' => '', 'target' => '_blank')) . '</h3>';
@@ -234,7 +234,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where((int) $catid . ' IN(catid) AND state=1')
+                ->where('state=1 AND FIND_IN_SET(' . (int) $catid . ',catid)')
                 ->limit('5')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -251,7 +251,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where((int) $catid . ' IN(catid) AND state=1')
+                ->where('state=1 AND FIND_IN_SET(' . (int) $catid . ',catid)')
                 ->limit('3')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -267,7 +267,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where((int) $catid . ' IN(catid) AND state=1')
+                ->where('state=1 AND FIND_IN_SET(' . (int) $catid . ',catid)')
                 ->limit('15')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -283,7 +283,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where((int) $catid . ' IN(catid) AND state=1')
+                ->where('state=1 AND FIND_IN_SET(' . (int) $catid . ',catid)')
                 ->limit('5')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -417,7 +417,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where('state=1 AND featured=1 AND FIND_IN_SET(2, catid) > 0')
+                ->where('state=1 AND featured=1 AND FIND_IN_SET(2,catid)')
                 ->limit('1')
                 ->order('ordering DESC, created DESC')
                 ->queryAll();
@@ -448,7 +448,7 @@ class Controller extends CController {
 
     public function local_main_news_bottom() {
         $i = 1;
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND featured!=1 AND FIND_IN_SET(2, catid) > 0 ORDER BY ordering DESC, created DESC LIMIT 9')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND featured!=1 AND FIND_IN_SET(2, catid) ORDER BY ordering DESC, created DESC LIMIT 9')->queryAll();
         echo '<div class="row-fluid">';
         foreach ($array as $key => $values) {
             echo '<div class="span4">';
@@ -473,7 +473,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where((int) $catid . ' IN(catid) AND state=1')
+                ->where('state=1 AND FIND_IN_SET(' . (int) $catid . ',catid)')
                 ->limit('1')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -490,7 +490,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('*')
                 ->from('{{content}}')
-                ->where((int) $catid . ' IN(catid) AND state=1')
+                ->where('state=1 AND FIND_IN_SET(' . (int) $catid . ',catid)')
                 ->limit('1')
                 ->order('created DESC, id DESC')
                 ->queryAll();
@@ -503,7 +503,7 @@ class Controller extends CController {
     }
 
     public function get_interviews_list($catid) {
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND ' . (int) $catid . ' IN(catid) ORDER BY created DESC, id DESC LIMIT 1,3')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND FIND_IN_SET(' . (int) $catid . ',catid) ORDER BY created DESC, id DESC LIMIT 1,3')->queryAll();
         print '<ul>';
         foreach ($array as $key => $values) {
             echo '<li>' . CHtml::link($values['title'], array('content/view', 'id' => $values['id']), array('class' => 'home_top_news', 'target' => '_blank')) . '</li>';
@@ -531,7 +531,7 @@ class Controller extends CController {
         $array = Yii::app()->db->createCommand()
                 ->select('id,title')
                 ->from('{{content}}')
-                ->where('state=1 AND 31 IN(catid)')
+                ->where('state=1 AND FIND_IN_SET(31,catid)')
                 ->limit('20')
                 ->order('created DESC, id DESC')
                 ->queryAll();
