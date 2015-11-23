@@ -52,14 +52,21 @@
         $this->widget('bootstrap.widgets.TbMenu', array(
             'type' => 'pills', // '', 'tabs', 'pills' (or 'list')
             'stacked' => false, // whether this is a stacked menu
-            'items' => array( //4 5 6 7 8 9 10 11
+            'items' => array(//4 5 6 7 8 9 10 11
                 array('label' => $this->get_menu_name(1), 'url' => array('/site/index')),
                 array('label' => ContentCategory::getCategoryName(4), 'url' => array('content/index', 'id' => 4)),
                 array('label' => ContentCategory::getCategoryName(5), 'url' => array('content/index', 'id' => 5)),
+                array('label' => ContentCategory::getCategoryName(35), 'url' => array('content/index', 'id' => 35)),
                 array('label' => ContentCategory::getCategoryName(6), 'url' => array('content/index', 'id' => 6)),
+                array('label' => ContentCategory::getCategoryName(36), 'url' => array('content/index', 'id' => 36)),
+                array('label' => ContentCategory::getCategoryName(37), 'url' => array('content/index', 'id' => 37)),
                 array('label' => ContentCategory::getCategoryName(7), 'url' => array('content/index', 'id' => 7)),
                 array('label' => ContentCategory::getCategoryName(8), 'url' => array('content/index', 'id' => 8)),
+                array('label' => ContentCategory::getCategoryName(38), 'url' => array('content/index', 'id' => 38)),
+                array('label' => ContentCategory::getCategoryName(39), 'url' => array('content/index', 'id' => 39)),
                 array('label' => ContentCategory::getCategoryName(9), 'url' => array('content/index', 'id' => 9)),
+                array('label' => ContentCategory::getCategoryName(40), 'url' => array('content/index', 'id' => 40)),
+                array('label' => ContentCategory::getCategoryName(41), 'url' => array('content/index', 'id' => 41)),
                 array('label' => ContentCategory::getCategoryName(10), 'url' => array('content/index', 'id' => 10)),
                 array('label' => ContentCategory::getCategoryName(11), 'url' => array('content/index', 'id' => 11)),
             ),
@@ -71,7 +78,7 @@
 </div>
 <div class="row-fluid">
     <div class="span12">
-        <?php if (isset($this->breadcrumbs)): ?>
+<?php if (isset($this->breadcrumbs)): ?>
             <?php
             $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
                 'links' => $this->breadcrumbs,
@@ -89,7 +96,7 @@
 </div>
 <div class="row-fluid">
     <div class="span12">
-        <?php echo $content; ?>
+<?php echo $content; ?>
     </div>
 </div>
 <?php $this->endContent(); ?>
