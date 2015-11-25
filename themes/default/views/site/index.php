@@ -30,14 +30,12 @@
                             <div class="widget-title">
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a data-toggle="tab" href="#tab1"><?php echo $this->get_menu_name(31); ?></a></li>
-                                    <li><a data-toggle="tab" href="#tab2"><?php echo $this->get_menu_name(32); ?></a></li>
-                                    <li><a data-toggle="tab" href="#tab3"><?php echo $this->get_category_name(3); ?></a></li>
+                                    <li><a data-toggle="tab" href="#tab2"><?php echo $this->get_menu_name(32); ?></a></li>                                    
                                 </ul>
                             </div>
                             <div class="widget-content tab-content">
                                 <div id="tab1" class="tab-pane active new_tab_schrol"><?php $this->get_latest_news_home(); ?></div>
                                 <div id="tab2" class="tab-pane new_tab_schrol"><?php $this->top_hits_news_home_top(); ?></div>
-                                <div id="tab3" class="tab-pane new_tab_schrol"><?php $this->getCategoryNewsList(3); ?></div>
                             </div>                            
                         </div>     
                     </div>
@@ -60,53 +58,53 @@
             <div class="span12">
                 <?php $this->get_advertisement(2); ?>
             </div>
-        </div>
+        </div>        
         <div class="row-fluid">
             <div class="span4">
                 <?php $this->get_interviews(20); ?>
                 <?php $this->get_interviews_list(20); ?>
             </div>
             <div class="span4">
-                <?php $this->get_interviews(21); ?>
-                <?php $this->get_interviews_list(21); ?>
+                <?php $this->get_interviews(25); ?>
+                <?php $this->get_interviews_list(25); ?>
             </div>
             <div class="span4">
-                <?php $this->get_interviews(22); ?>
-                <?php $this->get_interviews_list(22); ?>
+                <?php $this->get_interviews(21); ?>
+                <?php $this->get_interviews_list(21); ?>
             </div>
         </div>
         <div class="row-fluid">            
             <div class="span4">
-                <?php $this->get_interviews(23); ?>
-                <?php $this->get_interviews_list(23); ?>
-            </div>
-            <div class="span4">
-                <?php $this->get_interviews(24); ?>
-                <?php $this->get_interviews_list(24); ?>
-            </div>
-            <div class="span4">
-                <?php $this->get_interviews(25); ?>
-                <?php $this->get_interviews_list(25); ?>
-            </div>
-        </div>  
-        <div class="row-fluid">
-            <div class="span4">
-                <?php $this->get_interviews(26); ?>
-                <?php $this->get_interviews_list(26); ?>
+                <?php $this->get_interviews(22); ?>
+                <?php $this->get_interviews_list(22); ?>
             </div>
             <div class="span4">
                 <?php $this->get_interviews(27); ?>
                 <?php $this->get_interviews_list(27); ?>
             </div>
             <div class="span4">
-                <?php $this->get_interviews(28); ?>
-                <?php $this->get_interviews_list(28); ?>
+                <?php $this->get_interviews(23); ?>
+                <?php $this->get_interviews_list(23); ?>
+            </div>
+        </div>  
+        <div class="row-fluid">
+            <div class="span4">
+                <?php $this->get_interviews(24); ?>
+                <?php $this->get_interviews_list(24); ?>
+            </div>
+            <div class="span4">
+                <?php $this->get_interviews(30); ?>
+                <?php $this->get_interviews_list(30); ?>
+            </div>
+            <div class="span4">
+                <?php $this->get_interviews(26); ?>
+                <?php $this->get_interviews_list(26); ?>
             </div>
         </div>  
         <div class="row-fluid">            
             <div class="span4">
-                <?php $this->get_interviews(30); ?>
-                <?php $this->get_interviews_list(30); ?>
+                <?php $this->get_interviews(28); ?>
+                <?php $this->get_interviews_list(28); ?>
             </div>
             <div class="span4">
                 <?php $this->get_interviews(33); ?>
@@ -161,35 +159,28 @@
     <div class="span3">
         <div class="row-fluid">
             <div class="span12">
-                <div class="widget-box">
-                    <div class="widget-title">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#tab5"><?php echo $this->get_category_name(17); ?></a></li>
-                            <li><a data-toggle="tab" href="#tab6"><?php echo $this->get_category_name(18); ?></a></li>                            
-                            <li><a data-toggle="tab" href="#tab16"><?php echo $this->get_category_name(19); ?></a></li>
-                        </ul>
-                    </div>
-                    <div class="widget-content tab-content">
-                        <div id="tab5" class="tab-pane active"><?php $this->getCategoryNewsList(17); ?></div>
-                        <div id="tab6" class="tab-pane"><?php $this->getCategoryNewsList(18); ?></div> 
-                        <div id="tab16" class="tab-pane"><?php $this->getCategoryNewsList(19); ?></div>
-                    </div>                            
-                </div>
-            </div>
-        </div>
-        <div class="row-fluid">
-            <div class="span12">
-                <?php $this->get_advertisement_right(6); ?>
-            </div>
-        </div>        
-        <div class="row-fluid">
-            <div class="span12">
                 <iframe src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fmypabna.com.bd%3Fref%3Dhl&amp;width=270&amp;height=290&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:270px; height:290px;" allowTransparency="true"></iframe>
             </div>
         </div>
         <div class="row-fluid">
             <div class="span12">
                 <?php $this->get_advertisement_right(32); ?>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#tab3"><?php echo $this->get_category_name(3); ?></a></li>
+                            <li><a data-toggle="tab" href="#tab4"><?php echo $this->get_category_name(18); ?></a></li>                            
+                        </ul>
+                    </div>
+                    <div class="widget-content tab-content">
+                        <div id="tab3" class="tab-pane active"><?php $this->getCategoryNewsList(3); ?></div>
+                        <div id="tab4" class="tab-pane"><?php $this->getCategoryNewsList(18); ?></div> 
+                    </div>                            
+                </div>
             </div>
         </div>
         <?php
@@ -233,19 +224,40 @@
             <div class="span12">
                 <?php $this->get_advertisement_right(33); ?>
             </div>
-        </div>
+        </div>                        
         <div class="row-fluid">
             <div class="span12">
                 <div class="widget-box">
                     <div class="widget-title">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#tab55"><?php echo $this->get_newslink_category(5); ?></a></li>
-                            <li><a data-toggle="tab" href="#tab66"><?php echo $this->get_newslink_category(6); ?></a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab5"><?php echo $this->get_category_name(17); ?></a></li>                       
+                            <li><a data-toggle="tab" href="#tab6"><?php echo $this->get_category_name(19); ?></a></li>
                         </ul>
                     </div>
                     <div class="widget-content tab-content">
-                        <div id="tab55" class="tab-pane active"><?php $this->getNewsLink(5); ?></div>
-                        <div id="tab66" class="tab-pane"><?php $this->getNewsLink(6); ?></div>
+                        <div id="tab5" class="tab-pane active"><?php $this->getCategoryNewsList(17); ?></div>
+                        <div id="tab6" class="tab-pane"><?php $this->getCategoryNewsList(19); ?></div>
+                    </div>                            
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <?php $this->get_advertisement_right(6); ?>
+            </div>
+        </div>                        
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#tab7"><?php echo $this->get_newslink_category(5); ?></a></li>
+                            <li><a data-toggle="tab" href="#tab8"><?php echo $this->get_newslink_category(6); ?></a></li>
+                        </ul>
+                    </div>
+                    <div class="widget-content tab-content">
+                        <div id="tab7" class="tab-pane active"><?php $this->getNewsLink(5); ?></div>
+                        <div id="tab8" class="tab-pane"><?php $this->getNewsLink(6); ?></div>
                     </div>                            
                 </div>
             </div>
@@ -260,15 +272,29 @@
                 <div class="widget-box">
                     <div class="widget-title">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#tab17"><?php echo $this->get_newslink_category(4); ?></a></li>                            
-                            <li><a data-toggle="tab" href="#tab21"><?php echo $this->get_newslink_category(1); ?></a></li>
-                            <li><a data-toggle="tab" href="#tab22"><?php echo $this->get_newslink_category(2); ?></a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab9"><?php echo $this->get_newslink_category(8); ?></a></li>                            
+                            <li><a data-toggle="tab" href="#tab10"><?php echo $this->get_newslink_category(9); ?></a></li>
                         </ul>
                     </div>
                     <div class="widget-content tab-content">
-                        <div id="tab17" class="tab-pane active"><?php $this->getNewsLink(4); ?></div> 
-                        <div id="tab21" class="tab-pane"><?php $this->getNewsLink(1); ?></div>
-                        <div id="tab22" class="tab-pane"><?php $this->getNewsLink(2); ?></div>
+                        <div id="tab9" class="tab-pane active"><?php $this->getNewsLink(8); ?></div> 
+                        <div id="tab10" class="tab-pane"><?php $this->getNewsLink(9); ?></div>
+                    </div>                            
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#tab11"><?php echo $this->get_newslink_category(2); ?></a></li>                            
+                            <li><a data-toggle="tab" href="#tab12"><?php echo $this->get_newslink_category(10); ?></a></li>
+                        </ul>
+                    </div>
+                    <div class="widget-content tab-content">
+                        <div id="tab11" class="tab-pane active"><?php $this->getNewsLink(2); ?></div> 
+                        <div id="tab12" class="tab-pane"><?php $this->getNewsLink(10); ?></div>
                     </div>                            
                 </div>
             </div>
@@ -283,15 +309,13 @@
                 <div class="widget-box">
                     <div class="widget-title">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#tab7"><?php echo $this->get_newslink_category(7); ?></a></li>
-                            <li><a data-toggle="tab" href="#tab8"><?php echo $this->get_newslink_category(8); ?></a></li>
-                            <li><a data-toggle="tab" href="#tab9"><?php echo $this->get_newslink_category(9); ?></a></li>
+                            <li class="active"><a data-toggle="tab" href="#tab13"><?php echo $this->get_newslink_category(7); ?></a></li>
+                            <li><a data-toggle="tab" href="#tab14"><?php echo $this->get_newslink_category(11); ?></a></li>
                         </ul>
                     </div>
                     <div class="widget-content tab-content">
-                        <div id="tab7" class="tab-pane active"><?php $this->getNewsLink(7); ?></div>
-                        <div id="tab8" class="tab-pane"><?php $this->getNewsLink(8); ?></div>
-                        <div id="tab9" class="tab-pane"><?php $this->getNewsLink(9); ?></div>
+                        <div id="tab13" class="tab-pane active"><?php $this->getNewsLink(7); ?></div>
+                        <div id="tab14" class="tab-pane"><?php $this->getNewsLink(11); ?></div>
                     </div>                            
                 </div>
             </div>
@@ -300,7 +324,39 @@
             <div class="span12">
                 <?php $this->get_advertisement_right(10); ?>
             </div>
-        </div>        
+        </div>       
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#tab15"><?php echo $this->get_newslink_category(12); ?></a></li>
+                            <li><a data-toggle="tab" href="#tab16"><?php echo $this->get_newslink_category(13); ?></a></li>
+                        </ul>
+                    </div>
+                    <div class="widget-content tab-content">
+                        <div id="tab15" class="tab-pane active"><?php $this->getNewsLink(12); ?></div>
+                        <div id="tab16" class="tab-pane"><?php $this->getNewsLink(13); ?></div>
+                    </div>                            
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#tab17"><?php echo $this->get_newslink_category(4); ?></a></li>
+                            <li><a data-toggle="tab" href="#tab18"><?php echo $this->get_newslink_category(1); ?></a></li>
+                        </ul>
+                    </div>
+                    <div class="widget-content tab-content">
+                        <div id="tab17" class="tab-pane active"><?php $this->getNewsLink(4); ?></div>
+                        <div id="tab18" class="tab-pane"><?php $this->getNewsLink(1); ?></div>
+                    </div>                            
+                </div>
+            </div>
+        </div>
         <div class="row-fluid">
             <div class="span12">
                 <?php $this->get_web_links(); ?>         
