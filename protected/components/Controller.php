@@ -448,7 +448,7 @@ class Controller extends CController {
 
     public function local_main_news_bottom() {
         $i = 1;
-        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND featured!=1 AND FIND_IN_SET(2, catid) ORDER BY ordering DESC, created DESC LIMIT 9')->queryAll();
+        $array = Yii::app()->db->createCommand('SELECT id,title,profile_picture,introtext FROM {{content}} WHERE state=1 AND featured!=1 AND FIND_IN_SET(2, catid) ORDER BY ordering DESC, created DESC LIMIT 12')->queryAll();
         echo '<div class="row-fluid">';
         foreach ($array as $key => $values) {
             echo '<div class="span4">';
@@ -462,7 +462,7 @@ class Controller extends CController {
             if (is_int($i / 3)) {
                 echo '</div><div style="line-height:10px;">&nbsp;</div><div class="row-fluid">';
             }
-            if (is_int($i / 9)) {
+            if (is_int($i / 12)) {
                 echo '</div>';
             }
             $i++;
@@ -495,6 +495,22 @@ class Controller extends CController {
                 ->order('created DESC, id DESC')
                 ->queryAll();
         echo '<h3 class="category_news">' . CHtml::link($this->get_category_name($catid), array('/content/index', 'id' => $catid), array('class' => '', 'target' => '_blank')) . '</h3>';
+        foreach ($array as $key => $values) {
+            echo '<div class="thumbnail"><span style="margin:5px;">' . CHtml::image(Yii::app()->baseUrl . '/uploads/profile_picture/' . $values["profile_picture"], $values['title'], array("width" => 270, 'title' => $values['title'])) . '</span></div>';
+            echo '<div class="hr_border">&nbsp;</div>';
+            echo '<div>' . CHtml::link($values['title'], array('content/view', 'id' => $values['id']), array('class' => 'local_news', 'target' => '_blank')) . '</div>';
+        }
+    }
+
+    public function get_interviews_title_without_link($catid) {
+        $array = Yii::app()->db->createCommand()
+                ->select('*')
+                ->from('{{content}}')
+                ->where('state=1 AND FIND_IN_SET(' . (int) $catid . ',catid)')
+                ->limit('1')
+                ->order('created DESC, id DESC')
+                ->queryAll();
+        echo '<h3 class="category_news">' . $this->get_category_name($catid) . '</h3>';
         foreach ($array as $key => $values) {
             echo '<div class="thumbnail"><span style="margin:5px;">' . CHtml::image(Yii::app()->baseUrl . '/uploads/profile_picture/' . $values["profile_picture"], $values['title'], array("width" => 270, 'title' => $values['title'])) . '</span></div>';
             echo '<div class="hr_border">&nbsp;</div>';

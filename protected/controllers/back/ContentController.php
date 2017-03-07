@@ -78,7 +78,8 @@ class ContentController extends BackEndController {
 
         if (isset($_POST['Content'])) {
             $model->attributes = $_POST['Content'];
-            $model->created = new CDbExpression('NOW()');
+            //$model->created = new CDbExpression('NOW()');
+            $model->created = date("Y-m-d, G:i:s");
             $model->created_by = Yii::app()->user->id;
             if (empty($model->alias)) {
                 $model->alias = str_replace(' ', '-', strtolower($model->title));
@@ -135,7 +136,7 @@ class ContentController extends BackEndController {
 
         if (isset($_POST['Content'])) {
             $model->attributes = $_POST['Content'];
-            $model->modified = date('Y-m-d');
+            $model->modified = date("Y-m-d, G:i:s");
             $model->modified_by = Yii::app()->user->id;
             if (empty($model->alias)) {
                 $model->alias = str_replace(' ', '-', strtolower($model->title));

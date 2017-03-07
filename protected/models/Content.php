@@ -233,4 +233,12 @@ class Content extends CActiveRecord {
         }
     }
 
+    public static function get_date_time($date) {
+        if (empty($date) || $date == '0000-00-00' || $date == '0000-00-00 00:00:00') {
+            return null;
+        } else {
+            return date("M j, Y, g:i:s A", strtotime($date));
+        }
+    }
+
 }

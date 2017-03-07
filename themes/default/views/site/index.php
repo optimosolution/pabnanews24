@@ -58,7 +58,23 @@
             <div class="span12">
                 <?php $this->get_advertisement(2); ?>
             </div>
-        </div>        
+        </div>    
+<!--        Added @ November 27, 2016-->
+        <div class="row-fluid">
+            <div class="span6">
+                <?php $this->get_interviews(51); ?>
+                <?php $this->get_interviews_list(51); ?>
+            </div>
+            <div class="span6">
+                <?php $this->get_interviews(3); ?>
+                <?php $this->get_interviews_list(3); ?>
+            </div>
+        </div>    
+        <div class="row-fluid">
+            <div class="span12">
+                <?php $this->get_advertisement(36); ?>
+            </div>
+        </div>
         <div class="row-fluid">
             <div class="span4">
                 <?php $this->get_interviews(20); ?>
@@ -138,15 +154,15 @@
         </div>
         <div class="row-fluid">
             <div class="span4">
-                <?php $this->get_interviews_title(12); ?>
+                <?php $this->get_interviews_title_without_link(12); ?>
                 <?php $this->get_interviews_list(12); ?>
             </div>
             <div class="span4">
-                <?php $this->get_interviews_title(13); ?>
+                <?php $this->get_interviews_title_without_link(13); ?>
                 <?php $this->get_interviews_list(13); ?>
             </div>
             <div class="span4">
-                <?php $this->get_interviews_title(14); ?>
+                <?php $this->get_interviews_title_without_link(14); ?>
                 <?php $this->get_interviews_list(14); ?>
             </div>
         </div>
