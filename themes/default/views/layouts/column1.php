@@ -69,6 +69,17 @@
                 array('label' => ContentCategory::getCategoryName(41), 'url' => array('content/index', 'id' => 41)),
                 array('label' => ContentCategory::getCategoryName(10), 'url' => array('content/index', 'id' => 10)),
                 array('label' => ContentCategory::getCategoryName(11), 'url' => array('content/index', 'id' => 11)),
+                array('label' => ContentCategory::getCategoryName(53), 'url' => array('content/index', 'id' => 53)),
+                array('label' => ContentCategory::getCategoryName(54), 'url' => array('content/index', 'id' => 54)),
+                array('label' => ContentCategory::getCategoryName(55), 'url' => array('content/index', 'id' => 55)),
+                array('label' => ContentCategory::getCategoryName(56), 'url' => array('content/index', 'id' => 56)),
+                array('label' => ContentCategory::getCategoryName(57), 'url' => array('content/index', 'id' => 57)),
+                array('label' => ContentCategory::getCategoryName(58), 'url' => array('content/index', 'id' => 58)),
+                array('label' => ContentCategory::getCategoryName(59), 'url' => array('content/index', 'id' => 59)),
+                array('label' => ContentCategory::getCategoryName(60), 'url' => array('content/index', 'id' => 60)),
+                array('label' => ContentCategory::getCategoryName(61), 'url' => array('content/index', 'id' => 61)),
+                array('label' => ContentCategory::getCategoryName(62), 'url' => array('content/index', 'id' => 62)),
+                array('label' => ContentCategory::getCategoryName(63), 'url' => array('content/index', 'id' => 63)),
             ),
             'htmlOptions' => array('style' => 'font-size:16px;height:20px;'),
         ));
@@ -78,7 +89,7 @@
 </div>
 <div class="row-fluid">
     <div class="span12">
-<?php if (isset($this->breadcrumbs)): ?>
+        <?php if (isset($this->breadcrumbs)): ?>
             <?php
             $this->widget('bootstrap.widgets.TbBreadcrumbs', array(
                 'links' => $this->breadcrumbs,
@@ -96,7 +107,7 @@
 </div>
 <div class="row-fluid">
     <div class="span12">
-<?php echo $content; ?>
+        <?php echo $content; ?>
     </div>
 </div>
 <?php $this->endContent(); ?>
