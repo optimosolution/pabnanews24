@@ -112,7 +112,7 @@ class ContentCategory extends CActiveRecord {
      * Retrieves User name by ID.
      * @return string.
      */
-    public function getUserName($id) {
+    public static function getUserName($id) {
         $returnValue = Yii::app()->db->createCommand()
                 ->select('name')
                 ->from('{{user_admin}}')
@@ -126,7 +126,7 @@ class ContentCategory extends CActiveRecord {
      * Retrieves Category name by ID.
      * @return string.
      */
-    public function getCategoryName($id) {
+    public static function getCategoryName($id) {
         $returnValue = Yii::app()->db->createCommand()
                 ->select('title')
                 ->from('{{content_category}}')
